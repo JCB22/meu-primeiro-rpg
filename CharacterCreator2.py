@@ -23,9 +23,9 @@ class MyGUI:
         self.buttonframe.columnconfigure(2, weight=1)
         self.buttonframe.pack()
 
-        self.btn1 = tk.Button(self.buttonframe, text="Bárbaro", font=('Roboto', 18), command=Berserker(self.nome_personagem.get))
-        self.btn2 = tk.Button(self.buttonframe, text="Bardo", font=('Roboto', 18), command=Bardo(self.nome_personagem.get))
-        self.btn3 = tk.Button(self.buttonframe, text="Protetor", font=('Roboto', 18), command=Ranger(self.nome_personagem.get))
+        self.btn1 = tk.Button(self.buttonframe, text="Berserker", font=('Roboto', 18), command=self.create_char)
+        self.btn2 = tk.Button(self.buttonframe, text="Bardo", font=('Roboto', 18), command=self.create_char)
+        self.btn3 = tk.Button(self.buttonframe, text="Ranger", font=('Roboto', 18), command=self.create_char)
 
         self.btn1.pack()
         self.btn2.pack()
@@ -33,12 +33,16 @@ class MyGUI:
 
         self.root.mainloop()
 
+    def create_char(self):
+        """ Cria um personagem """
+        pass
+
 
 class Character:
 
     def __init__(self, name):
 
-        self.name = name
+        self.name = self.nome_personagem.get('1.0', tk.END)
 
     def attack(self):
         return self.attack
