@@ -8,10 +8,11 @@ class MyGUI:
 
         self.root = tk.Tk()
 
-        self.root.geometry("200x150")
+        self.root.geometry("500x500")
 
         self.nome_personagem = tk.Entry(width=20)
         self.nome_personagem.insert(0, "Nome de Personagem")
+        self.nome_personagem.pack()
 
         self.label = tk.Label(text="Escolha sua classe:")
         self.label.pack(padx=10, pady=10)
@@ -20,10 +21,17 @@ class MyGUI:
         self.buttonframe.columnconfigure(0, weight=1)
         self.buttonframe.columnconfigure(1, weight=1)
         self.buttonframe.columnconfigure(2, weight=1)
+        self.buttonframe.pack()
 
         self.btn1 = tk.Button(self.buttonframe, text="Bárbaro", font=('Roboto', 18), command=Berserker(self.nome_personagem.get))
         self.btn2 = tk.Button(self.buttonframe, text="Bardo", font=('Roboto', 18), command=Bardo(self.nome_personagem.get))
         self.btn3 = tk.Button(self.buttonframe, text="Protetor", font=('Roboto', 18), command=Ranger(self.nome_personagem.get))
+
+        self.btn1.pack()
+        self.btn2.pack()
+        self.btn3.pack()
+
+        self.root.mainloop()
 
 
 class Character:
@@ -79,7 +87,7 @@ class Ranger(Character):
     }
 
 
-def main():
+class main():
     MyGUI()
 
 
