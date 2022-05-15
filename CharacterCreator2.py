@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import messagebox
+# from tkinter import messagebox
 
 
 class MyGUI:
@@ -23,9 +23,9 @@ class MyGUI:
         self.buttonframe.columnconfigure(2, weight=1)
         self.buttonframe.pack()
 
-        self.btn1 = tk.Button(self.buttonframe, text="Berserker", font=('Roboto', 18), command=self.create_char)
-        self.btn2 = tk.Button(self.buttonframe, text="Bardo", font=('Roboto', 18), command=self.create_char)
-        self.btn3 = tk.Button(self.buttonframe, text="Ranger", font=('Roboto', 18), command=self.create_char)
+        self.btn1 = tk.Button(self.buttonframe, text="Berserker", font=('Roboto', 18), command=lambda: self.create_char(3))
+        self.btn2 = tk.Button(self.buttonframe, text="Bardo", font=('Roboto', 18), command=lambda: self.create_char(3))
+        self.btn3 = tk.Button(self.buttonframe, text="Ranger", font=('Roboto', 18), command=lambda: self.create_char(3))
 
         self.btn1.pack()
         self.btn2.pack()
@@ -33,16 +33,25 @@ class MyGUI:
 
         self.root.mainloop()
 
-    def create_char(self):
-        """ Cria um personagem """
-        pass
+    def create_char(self, id):
+        if id == 1:
+            self.bers1 = Berserker(self.nome_personagem.get())
+            print(self.bers1.show_status())
+        elif id == 2:
+            self.bardo1 = Bardo(self.nome_personagem.get())
+            print(self.bardo1.show_status())
+        elif id == 3:
+            self.ranger1 = Ranger(self.nome_personagem.get())
+            print(self.ranger1.show_status())
+        else:
+            print("O Que eu estou fazendo aqui?")
 
 
 class Character:
 
     def __init__(self, name):
 
-        self.name = self.nome_personagem.get('1.0', tk.END)
+        self.name = name
 
     def attack(self):
         return self.attack
@@ -55,6 +64,9 @@ class Character:
 
     def moves(self):
         return self.moves
+
+    def show_status(self):
+        return f'N: {self.name} A: {self.attack} D: {self.defense} R: {self.range}'
 
 
 class Bardo(Character):
@@ -101,4 +113,4 @@ if __name__ == '__main__':
 
 # c1 = Berserker("Jonas Brothers")
 
-# print(f"N: {c1.name} A: {c1.attack} D: {c1.defense} R: {c1.range}")
+# print
