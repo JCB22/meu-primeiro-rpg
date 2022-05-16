@@ -23,8 +23,8 @@ class MyGUI:
         self.buttonframe.columnconfigure(2, weight=1)
         self.buttonframe.pack()
 
-        self.btn1 = tk.Button(self.buttonframe, text="Berserker", font=('Roboto', 18), command=lambda: self.create_char(3))
-        self.btn2 = tk.Button(self.buttonframe, text="Bardo", font=('Roboto', 18), command=lambda: self.create_char(3))
+        self.btn1 = tk.Button(self.buttonframe, text="Berserker", font=('Roboto', 18), command=lambda: self.create_char(1))
+        self.btn2 = tk.Button(self.buttonframe, text="Bardo", font=('Roboto', 18), command=lambda: self.create_char(2))
         self.btn3 = tk.Button(self.buttonframe, text="Ranger", font=('Roboto', 18), command=lambda: self.create_char(3))
 
         self.btn1.pack()
